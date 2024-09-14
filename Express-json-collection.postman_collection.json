@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "01eb5d90-a89f-4dc7-a258-c684feec328a",
+		"name": "Express-json-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36195829"
+	},
+	"item": [
+		{
+			"name": "Create Actor functionality",
+			"item": [
+				{
+					"name": "Cannot create actor with future date",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Jurgita\",\r\n    \"lastName\": \"Jonaityte\", \r\n    \"dateOfBirth\": \"2090-01-14\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2999/actors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create actor successfull call",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Johnny\",\r\n    \"lastName\": \"Depp\", \r\n    \"dateOfBirth\": \"1981-01-14\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2999/actors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get created actor by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2999/actors/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check created actor exists in Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2999/actors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Delete functionality",
+			"item": [
+				{
+					"name": "Delete actor which does not exist return 404",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2999/actors/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create actor for further delete",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"John\",\r\n    \"lastName\": \"Davis\", \r\n    \"dateOfBirth\": \"1985-11-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2999/actors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete created Actor return 204",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2999/actors/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check deleted actor does not exist in get by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2999/actors/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check deleted actor does not exist in Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2999/actors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Update Actor functionality",
+			"item": [
+				{
+					"name": "Create actor for further update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Leonardo\",\r\n    \"lastName\": \"DiCaprio\", \r\n    \"dateOfBirth\": \"1981-01-21\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2999/actors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cannot update created actor with future birthday return 400",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Leonardo\",\r\n    \"lastName\": \"DiCaprio\", \r\n    \"dateOfBirth\": \"2081-01-21\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2999/actors/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update created actor successfull cal",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Leonardo\",\r\n    \"lastName\": \"DiCaprio\", \r\n    \"dateOfBirth\": \"1980-02-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2999/actors/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update actor with not existing ID return 404",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\":\"Leonardo\",\r\n    \"lastName\": \"DiCaprio\", \r\n    \"dateOfBirth\": \"1980-02-15\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2999/actors/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors",
+								"10"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get updated actor by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2999/actors/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check updated actor exists in Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2999/actors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"actors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Check Create Movie functionality",
+			"item": [
+				{
+					"name": "Cannot create movie with not existing actor ID return 400",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Movie No.1\",\r\n  \"creationDate\": \"2023-09-01\",\r\n  \"actorId\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2999/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create movie successfull call",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Movie No.1\",\r\n  \"creationDate\": \"2023-09-01\",\r\n  \"actorId\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2999/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get created movieby ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2999/movies/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"movies",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check created movie exists in Get All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2999/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2999",
+							"path": [
+								"movies"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get All Actors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:2999/actors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2999",
+					"path": [
+						"actors"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "actorId",
+			"value": "4",
+			"type": "string"
+		}
+	]
+}
